@@ -107,13 +107,13 @@ static BOOL hasBecomeActive = NO;
 
     // Fix up various user defaults settings.
     [iTermPreferences initializeUserDefaults];
-    
+
     // read preferences
     [iTermPreferences migratePreferences];
 
     // Make sure profiles are loaded.
     [ITAddressBookMgr sharedInstance];
-    
+
     // This sets up bonjour and migrates bookmarks if needed.
     [ITAddressBookMgr sharedInstance];
 
@@ -321,17 +321,21 @@ static BOOL hasBecomeActive = NO;
                afterDelay:0];
     [[NSNotificationCenter defaultCenter] postNotificationName:kApplicationDidFinishLaunchingNotification
                                                         object:nil];
-    
+
     [[[NSWorkspace sharedWorkspace] notificationCenter] addObserver:self
                                                            selector:@selector(workspaceSessionDidBecomeActive:)
                                                                name:NSWorkspaceSessionDidBecomeActiveNotification
                                                              object:nil];
-    
+
     [[[NSWorkspace sharedWorkspace] notificationCenter] addObserver:self
                                                            selector:@selector(workspaceSessionDidResignActive:)
                                                                name:NSWorkspaceSessionDidResignActiveNotification
                                                              object:nil];
 
+    MidiControls = [[iTermMidiControls alloc] init];
+    if (MidiControls != nil) {
+        MidiControlsTimer = [NSTimer scheduledTimerWithTimeInterval:0.2 target:MidiControls selector:@selector(onTimer:) userInfo:nil repeats:YES];
+    }
 }
 
 - (void)workspaceSessionDidBecomeActive:(NSNotification *)notification {
@@ -367,7 +371,7 @@ static BOOL hasBecomeActive = NO;
         // closing multiple sessions
         shouldShowAlert = YES;
     }
-    
+
     if (shouldShowAlert) {
         BOOL stayput = NSRunAlertPanel(@"Quit iTerm2?",
                                        @"All sessions will be closed.",
@@ -588,7 +592,7 @@ static BOOL hasBecomeActive = NO;
         launchTime_ = [[NSDate date] retain];
         _workspaceSessionActive = YES;
     }
-    
+
     return self;
 }
 
@@ -951,7 +955,7 @@ static BOOL hasBecomeActive = NO;
     [defaults setFloat:delay forKey:delayKey];
     double rate = bytes;
     rate /= delay;
-    
+
     [ToastWindowController showToastWithMessage:[NSString stringWithFormat:@"Pasting at up to %@/sec", [self formatBytes:rate]]];
 }
 

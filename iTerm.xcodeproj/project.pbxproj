@@ -610,6 +610,9 @@
 		1DFA9D7018F3A30F008ADC98 /* PointerPreferencesViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 1DFA9D6E18F3A30F008ADC98 /* PointerPreferencesViewController.h */; };
 		1DFA9D7118F3A30F008ADC98 /* PointerPreferencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DFA9D6F18F3A30F008ADC98 /* PointerPreferencesViewController.m */; };
 		1DFA9D7218F3A30F008ADC98 /* PointerPreferencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DFA9D6F18F3A30F008ADC98 /* PointerPreferencesViewController.m */; };
+		2F060BB319A7C29300386ADD /* MidiControls.h in Headers */ = {isa = PBXBuildFile; fileRef = 2F060BB119A7C29300386ADD /* MidiControls.h */; };
+		2F060BB419A7C29300386ADD /* MidiControls.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F060BB219A7C29300386ADD /* MidiControls.m */; };
+		2F060BB819A7D07200386ADD /* CoreMIDI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F060BB719A7D07200386ADD /* CoreMIDI.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		49A6E4091211CC6000D9AD6F /* Compatability.h in Headers */ = {isa = PBXBuildFile; fileRef = 49A6E4081211CC6000D9AD6F /* Compatability.h */; };
 		5ECE005F1454E59B004861E9 /* PseudoTerminalRestorer.h in Headers */ = {isa = PBXBuildFile; fileRef = 5ECE005D1454E59B004861E9 /* PseudoTerminalRestorer.h */; };
 		5ECE00601454E59B004861E9 /* PseudoTerminalRestorer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5ECE005E1454E59B004861E9 /* PseudoTerminalRestorer.m */; };
@@ -1428,6 +1431,9 @@
 		20D5CC6404E7AA0500000106 /* iTermApplicationDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = iTermApplicationDelegate.m; sourceTree = "<group>"; tabWidth = 4; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		20E74F4804E9089700000106 /* ITAddressBookMgr.h */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.c.h; path = ITAddressBookMgr.h; sourceTree = "<group>"; tabWidth = 4; };
 		20E74F4904E9089700000106 /* ITAddressBookMgr.m */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.c.objc; path = ITAddressBookMgr.m; sourceTree = "<group>"; tabWidth = 4; };
+		2F060BB119A7C29300386ADD /* MidiControls.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MidiControls.h; sourceTree = "<group>"; };
+		2F060BB219A7C29300386ADD /* MidiControls.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MidiControls.m; sourceTree = "<group>"; };
+		2F060BB719A7D07200386ADD /* CoreMIDI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMIDI.framework; path = System/Library/Frameworks/CoreMIDI.framework; sourceTree = SDKROOT; };
 		49A6E4081211CC6000D9AD6F /* Compatability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Compatability.h; sourceTree = "<group>"; };
 		5ECE005D1454E59B004861E9 /* PseudoTerminalRestorer.h */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.c.h; path = PseudoTerminalRestorer.h; sourceTree = "<group>"; tabWidth = 4; };
 		5ECE005E1454E59B004861E9 /* PseudoTerminalRestorer.m */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.c.objc; path = PseudoTerminalRestorer.m; sourceTree = "<group>"; tabWidth = 4; };
@@ -1804,6 +1810,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2F060BB819A7D07200386ADD /* CoreMIDI.framework in Frameworks */,
 				1DFA7C9E1923F77100DF1410 /* Security.framework in Frameworks */,
 				1DFA7C931923E8AC00DF1410 /* libSSKeychain.a in Frameworks */,
 				A68A30FF186D151E007F550F /* NMSSH.framework in Frameworks */,
@@ -1974,6 +1981,7 @@
 				A63F40A7183F3CED003A6A6D /* LineBufferHelpers.h */,
 				1D78B55C183EE1C000014D49 /* LineBufferPosition.h */,
 				1D891E41190724DB0053C4BB /* MarkTrigger.h */,
+				2F060BB119A7C29300386ADD /* MidiControls.h */,
 				1D29732514082676004C5DBE /* MovePaneController.h */,
 				1D9053C417A5CCF100A0B64E /* MovingAverage.h */,
 				A68A30EB186D150A007F550F /* NSArray+iTerm.h */,
@@ -2535,6 +2543,7 @@
 		1DD39AD5180B8118004E56D5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2F060BB719A7D07200386ADD /* CoreMIDI.framework */,
 				1DFA7C9D1923F77100DF1410 /* Security.framework */,
 				1D94EAC712D641D3008225A9 /* AddressBook.framework */,
 				1DEB293D1288899A00B2CB9F /* Carbon.framework */,
@@ -2644,6 +2653,7 @@
 				A63F40A8183F3CED003A6A6D /* LineBufferHelpers.m */,
 				1D78B55D183EE1C000014D49 /* LineBufferPosition.m */,
 				E8CF757F026DDAD703A80106 /* main.m */,
+				2F060BB219A7C29300386ADD /* MidiControls.m */,
 				FBD0AD0A0337A5B701F955DB /* PseudoTerminal.m */,
 				5ECE005E1454E59B004861E9 /* PseudoTerminalRestorer.m */,
 				2076B15804E8817300000106 /* PTToolbarController.m */,
@@ -3058,6 +3068,7 @@
 				1D06A052134CDBF800C414EF /* Trouter.h in Headers */,
 				1D988597135D23BD0072023F /* ProcessCache.h in Headers */,
 				A6E713A818F7C9F4008D94DD /* iTermProfilePreferences.h in Headers */,
+				2F060BB319A7C29300386ADD /* MidiControls.h in Headers */,
 				1D624BD91386E0B600111319 /* GTMCarbonEvent.h in Headers */,
 				A6E74757188C66CF005355CF /* iTermExposeTabView.h in Headers */,
 				1D624BDD1386E0FA00111319 /* GTMDefines.h in Headers */,
@@ -3927,6 +3938,7 @@
 				1DAED99312EDF923005E49ED /* iTermSearchField.m in Sources */,
 				1D85D1EF1306687700A3E998 /* RegexKitLite.m in Sources */,
 				A6E713AE18F7CF73008D94DD /* ProfilesGeneralPreferencesViewController.m in Sources */,
+				2F060BB419A7C29300386ADD /* MidiControls.m in Sources */,
 				A6AE1ECD191FF9DB00780C19 /* iTermMouseCursor.m in Sources */,
 				1D237D29131D8741004DD60C /* FindView.m in Sources */,
 				A69B45961973198900F5444D /* iTermOpenQuicklyTableRowView.m in Sources */,

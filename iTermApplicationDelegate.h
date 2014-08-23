@@ -30,6 +30,7 @@
 #import <Cocoa/Cocoa.h>
 #import <Carbon/Carbon.h>
 #import "DebugLogging.h"
+#import "MidiControls.h"
 
 @class PseudoTerminal;
 extern NSString *kUseBackgroundPatternIndicatorChangedNotification;
@@ -93,6 +94,9 @@ int DebugLogImpl(const char *file, int line, const char *function, NSString* val
     BOOL finishedLaunching_;
 
     BOOL userHasInteractedWithAnySession_;  // Disables min 10-second running time
+
+    iTermMidiControls* MidiControls;
+    NSTimer* MidiControlsTimer;
 }
 
 @property(nonatomic, readonly) BOOL workspaceSessionActive;
